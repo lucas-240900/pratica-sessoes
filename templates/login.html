@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+{% if msg is not none %}
+    <p id="mensagem_sucesso">{{ sucesso }}</p>
+{% endif %}
+
+<h1>Login</h1>
+<form action="{{ url_for('login') }}" method="post">
+<input type="text" name="username" placeholder="Usuário">
+<input type="password" name="password" placeholder="Senha">
+<input type="submit" value="Entrar">
+</form>
+
+<p>Não tem uma conta? <a href="{{ url_for('cadastro') }}">Cadastre-
+se</a></p>
+
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<h1>Página de Cadastro</h1>
+
+{% if erro is not none %}
+<p class="error">
+    {{ erro }}
+</p>
+{% endif %}
+
+{% if form is not none %}
+    {% set form_nome = form["nome"] %}
+{% else %}
+    {% set form_nome = "" %}
+{% endif %}
+
+
+<h1>Cadastro de Usuário</h1>
+<form action="{{ url_for('registrar') }}" method="post">
+<input type="text" name="username" placeholder="Usuário">
+<input type="password" name="password" placeholder="Senha">
+<input type="submit" value="Cadastrar">
+</form>
+<p>Já tem uma conta? <a href="{{ url_for('login') }}">Faça login</a></p>
+
+{% endblock %}
